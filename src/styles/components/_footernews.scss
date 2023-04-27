@@ -1,0 +1,87 @@
+::root {
+    --animationDistance: -100px;
+    --animationDuration: 12s;
+}
+
+.footer-container{
+    // position: absolute;
+    // left: 0;
+    // right: 0;
+    // bottom: 3%;
+    width: 95vw;
+    height: 60px;
+    margin: 0 auto;
+    margin-bottom: 1em;
+    background-color: $secondary-color_900;
+    clip-path: polygon(
+        0% calc(0% + 20px), 
+        0% 100%, 
+        calc(100% - 20px) 100%, 
+        100% calc(100% - 20px), 
+        100% 0%, 
+        calc(0% + 20px) 0%
+    );
+
+    @media screen and (max-width: $tablet-layout) {
+        &{
+            margin-bottom: 0;
+        }
+    }
+}
+
+.footer-header{
+    white-space: nowrap;
+    overflow: hidden;
+
+    & div{
+        animation: header-scroll  6s infinite linear;
+        color: $low-color_600;
+        display: inline-block;
+        font-weight: 700;
+        padding-right: 2em;
+    }
+
+    @keyframes header-scroll {
+        from{
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+    }
+}
+
+.footer-content{
+    display: block;
+    min-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+
+    & .inner{
+        animation-duration: var(--animationDuration);   
+        animation-timing-function: linear;
+        
+        & div{     
+            text-transform: uppercase;
+            color: whitesmoke;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 2em;
+            padding-right: 2em;
+            text-transform: uppercase;
+        }        
+    }
+    & .inner.moving{
+        animation-name: content-scroll;
+    }
+
+}
+@keyframes content-scroll {
+    0%{
+        transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(var(--animationDistance));
+    }
+}
+

@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: $font-primary;
+    color: $font-color;
+}
+body{
+    background: $background;
+    min-height: 100vh;
+    font-size: 100%;
+}
+
+*::-webkit-scrollbar {
+    width: 6px; 
+    background-color: $bg-color_300;
+}    
+*::-webkit-scrollbar-thumb {
+    background-color: $low-color_700;
+}

@@ -1,0 +1,126 @@
+import React from 'react' 
+import { useForm } from '../../hooks/useForm';
+import { v4 as uuid } from 'uuid';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../redux/itemsSlice';
+import ListItems from './ListItems';
+
+
+const ItemsScreen = () => {
+    const dispatch = useDispatch();
+    const [formValues, handleInputChange, reset] = useForm({
+        url: "",
+        name: "",
+        value: "",
+        min: "",
+        max: "",
+    })
+    const {url, name, value, min, max} = formValues;
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const isUrl = /(https:\/\/fontawesome.com\/icons\/([a-z, -]*)\?f=\w+&s=\w+)/.test(url)
+        const hasName = name.length > 0
+        const hasValue = value.length > 0 && !isNaN(value) && Number(value) > 0
+        const isRange = min.length===0 && max.length===0 || !isNaN(min) && !isNaN(max) && Number(min) < Number(max)
+
+        if(isUrl && hasName && hasValue && isRange){
+            const n = url.match(/\/(.*?)\?/)[1].split("/").slice(-1)[0]
+            const f = url.match(/(f=)\w+/g)[0].split('=')[1];
+            const s = url.match(/(s=)\w+/g)[0].split('=')[1];
+            
+
+            const item = {
+                id: uuid(),
+                ico: {
+                    name: n,
+                    family: f,
+                    style: s
+                },
+                name: name,
+                alteration: 0,
+                value: {
+                    initial: Number(value),
+                    current: null
+                },
+                range: {
+                    min: min ? Number(min): null,
+                    max: max ? Number(max): null
+                }
+            };
+            dispatch(addItem(item))
+            reset()
+        }else{
+            //!MENSAJE DE ERROR
+        }
+
+        
+    }
+
+    return (
+        <>
+            <form onSubmit={handleSubmit} className='form-content' autoComplete="off">
+                <label>
+                    ICON URL:
+                    <input 
+                        name='url'
+                        type='text'
+                        placeholder='ICO URL'
+                        value={url}
+                        onChange={handleInputChange}
+                    />
+                </label>
+                <label>
+                    NAME:
+                    <input 
+                        name='name'
+                        type='text'
+                        placeholder='ITEM NAME'
+                        value={name}
+                        onChange={handleInputChange}
+                    />
+                </label>
+                <label>
+                    PRICE:
+                    <input 
+                        name='value'
+                        type='number'
+                        placeholder='999'
+                        min={0}
+                        value={value}
+                        onChange={handleInputChange}
+                    />
+                </label>
+                <label>
+                    RANGE:
+                    <div className='range-item'>
+                        <input 
+                            name='min'
+                            type='number' 
+                            placeholder='MIN' 
+                            max={0}
+                            value={min} 
+                            onChange={handleInputChange}
+                        />
+                        <input 
+                            name='max'
+                            type='number' 
+                            placeholder='MAX' 
+                            min={0}
+                            value={max} 
+                            onChange={handleInputChange}
+                        />
+                    </div>
+                </label>
+                <button className='button'>
+                    SAVE
+                </button>
+            <ListItems/>
+            </form>
+        </>
+    )
+}
+
+
+export default ItemsScreen;

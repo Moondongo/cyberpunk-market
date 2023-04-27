@@ -1,0 +1,17 @@
+.progress-bar_container{
+    height: 4px;
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 1em;
+    background-color: $low-color_700;
+
+    & .progress-bar_filler{
+        color: $tertiary-color_500;
+        height: 100%;
+        background-color: $tertiary-color_500;
+        border-radius: inherit;
+        box-shadow: $ui-glow-text;
+        text-align: right;
+        transition: width 1s linear;
+    }
+}

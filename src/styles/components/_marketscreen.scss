@@ -1,0 +1,13 @@
+.items-container{
+    height: calc(100% - 20px);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @media screen and (max-width: $tablet-layout) {
+        &{
+            overflow-y: scroll;
+            //height: calc(100% - 20px);
+            grid-template-columns: 1fr;
+        }
+    }
+}

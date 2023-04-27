@@ -1,0 +1,31 @@
+.header{
+    border-bottom: 2px solid rgba(156, 50, 48, 0.25);
+    width: 95vw;
+    margin: 0 auto;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+
+    & .tabs{
+        display: flex;
+        align-items: center;
+
+        & .tab{
+            
+            width: 66px;
+            height: 66px;
+            text-align: center;
+            line-height: 66px;
+            margin: 0 0.5em;
+            font-size: 1.2em;
+            font-weight: 500;
+            color: $low-color_600;
+            text-shadow: $ui-glow-price;
+            text-decoration: none;
+
+            &.active{
+                color: $secondary-color_300;
+            }
+        }
+    }
+}

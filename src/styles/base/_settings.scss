@@ -1,0 +1,47 @@
+//************ COLORS ************************ 
+$bg-color_300: #1e181e;
+$bg-color_500: #191a1e;
+$secondary-color_300: #2be4ea;
+$secondary-color_500: #2793e8;
+$secondary-color_700: #1a629b;
+$secondary-color_900: #092641;
+$tertiary-color_500: #fed33f;
+$low-color_200: #f4908b;
+$low-color_300: #ea6f69;
+$low-color_500: #e8615a;
+$low-color_600: #9c3230;
+$low-color_700: #5e2122;
+$low-color_800: #451717;
+$low-color_900: #3c181a;
+$neutral-color_500: #a39e9d;
+$neutral-color_600: #6f6c6b;
+$neutral-color_700: #3c3a39;
+$up-color_500: #2bfea0;
+$up-color_600: #22cb7f;
+$up-color_700: #0c4a2e;
+$gold-color: #fad340;
+$silver-color: #d6d0cf;
+$bronce-color: #cf7c35;
+
+//*********** EFFECTS ************************
+$ui-glow-text: 0px 0px 5px currentcolor;
+$ui-glow-price: 0px 0px 3px currentcolor;
+
+
+//************ FONTS *************************
+$font-primary: "Rajdhani", sans-serif;
+$font-color: white;
+
+//************ LAYOUTS ***********************
+$mobile-layout : 480px;
+$tablet-layout: 768px;
+$smallscreen-layout: 1024px;
+
+
+
+//************ other *************************
+$background : no-repeat $bg-color_500 radial-gradient(
+    ellipse at 33% 10%,
+    #461616 0%,
+    transparent 75%
+);

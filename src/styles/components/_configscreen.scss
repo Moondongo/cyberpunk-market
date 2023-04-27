@@ -1,0 +1,63 @@
+.form-config{
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2em;
+    
+    & label{
+        font-weight: 500;
+        color: $low-color_300;
+        text-shadow: $ui-glow-text;
+        font-size: 1.8em;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+
+        & input{
+            width: 100%;
+            font-weight: 500;
+            font-size: 0.6em;
+            text-align: center;
+            padding: 4px;
+            color: $secondary-color_300;
+            text-shadow: $ui-glow-text;
+            background-color: $bg-color_300;
+            border: 1px solid $low-color_600;
+
+            &::placeholder{                
+                color: $low-color_700;
+            }
+            &:focus{
+                outline: none;
+                box-shadow: 0 0 5px $low-color_600;
+            }
+        }
+
+        & div{
+            display: flex;
+            justify-content: space-between;
+            & input{
+                width: 50%;
+            }
+        }
+    }
+
+    & .button{
+        align-self: center;
+        width: 180px;
+        height: 30px;
+        font-weight: 600;
+        font-size: 1.2em;
+        letter-spacing: 2px;
+        color: $secondary-color_300;
+        text-shadow: $ui-glow-text;
+        background-color: $bg-color_300;
+        border: 1px solid $secondary-color_300;
+        box-shadow: 0 0 5px $secondary-color_300;
+
+        &:active{
+            box-shadow: none;
+        }
+    }
+}
