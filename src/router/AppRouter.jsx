@@ -11,7 +11,7 @@ import ConfigScreen from '../components/config/ConfigScreen'
 
 const router = createBrowserRouter([
     {
-        path: '/',
+        path: '/cyberpunk-market',
         element: <BaseScreen/>,
         children: [
             {
