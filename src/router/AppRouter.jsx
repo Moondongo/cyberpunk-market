@@ -30,7 +30,8 @@ const router = createBrowserRouter([
                 path: '/config',
                 element: <ConfigScreen/>
             }
-        ]
+        ],
+        errorElement: <h1>PAGINA DE ERRROR</h1>
     }
 ])
 
