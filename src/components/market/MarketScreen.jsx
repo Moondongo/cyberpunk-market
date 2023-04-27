@@ -25,12 +25,15 @@ const MarketScreen = () => {
 
     useEffect(() => {
         //!const temp = items.sort((a, b) => b.value - a.value) ERRROR por mutar el array "items"
-        const temp = [...items].sort((a, b) => b.value - a.value)
+        const temp = [...items].sort((a, b) => {
+            const first = a.value.current ? a.value.current : a.value.initial;
+            const second = b.value.current ? b.value.current : b.value.initial;
+            return second - first
+        })
         
         setFirstTenItems(
             temp.length > 9 ? temp.slice(0, 10) : temp
         )
-        console.log(items[0])
     }, [items])
 
     return (

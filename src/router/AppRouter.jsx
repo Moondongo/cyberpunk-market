@@ -32,7 +32,7 @@ const router = createHashRouter([
                 element: <ConfigScreen/>
             }
         ],
-        errorElement: <h1>PAGINA DE ERRROR</h1>
+        errorElement: <h1>PAGINA DE E</h1>
     }
 ])
 

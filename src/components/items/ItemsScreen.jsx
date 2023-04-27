@@ -50,7 +50,7 @@ const ItemsScreen = () => {
                 }
             };
             dispatch(addItem(item))
-            reset()
+            //reset()
         }else{
             //!MENSAJE DE ERROR
         }
