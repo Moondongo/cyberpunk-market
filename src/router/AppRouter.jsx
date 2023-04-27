@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+    createHashRouter,
     createBrowserRouter,
     RouterProvider,
 } from 'react-router-dom'
@@ -9,9 +10,9 @@ import ItemsScreen from '../components/items/ItemsScreen'
 import NewsScreen from '../components/news/NewsScreen'
 import ConfigScreen from '../components/config/ConfigScreen'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
-        path: '/cyberpunk-market',
+        path: '/',
         element: <BaseScreen/>,
         children: [
             {

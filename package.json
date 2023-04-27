@@ -1,5 +1,6 @@
 {
   "name": "market_cyberpunk",
+  "homepage": "https://github.com/Moondongo/cyberpunk-market",
   "private": true,
   "version": "0.0.0",
   "type": "module",
