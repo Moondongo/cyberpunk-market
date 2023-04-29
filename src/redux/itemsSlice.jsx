@@ -21,11 +21,11 @@ const itemsSlice = createSlice({
                     maxChange: item.range.max ? item.range.max : 100
                 }                
                 
-                const min = Math.floor(oldValue * (minChange/100));
-                const max = Math.floor(oldValue * (maxChange/100));
+                const min = Math.ceil(oldValue * (minChange/100));
+                const max = Math.ceil(oldValue * (maxChange/100));
                 const random = Math.floor((Math.random() * (max - min + 1)) + min) 
                 
-                const alteration = (oldValue + random < 1) ? -(oldValue - 1) : random;
+                const alteration = (oldValue + random < 10) ? -(oldValue - 9) : random;
                 const percent = alteration / oldValue * 100;
 
                 return {
