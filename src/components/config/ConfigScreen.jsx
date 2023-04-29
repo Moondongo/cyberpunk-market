@@ -67,26 +67,34 @@ const ConfigScreen = () => {
                         localStorage.setItem('config', JSON.stringify(data.CONFIG))
                     }
     
-                    location.reload()
+                    if("ITEMS" in data || "NEWS" in data || "CONFIG" in data){
+                        location.reload()
+                    }
                 })
                 .catch( e => console.log)
             } catch (error) {
                 console.warn(error)
             }
         }else{
-            const data = JSON.parse(cbValue.content)
+            try {
+                const data = JSON.parse(cbValue.content)
 
-            if("ITEMS" in data ){
-                localStorage.setItem('items', JSON.stringify(data.ITEMS))
-            }
-            if("NEWS" in data ){
-                localStorage.setItem('news', JSON.stringify(data.NEWS))
-            }
-            if("CONFIG" in data ){
-                localStorage.setItem('config', JSON.stringify(data.CONFIG))
-            }
+                if("ITEMS" in data ){
+                    localStorage.setItem('items', JSON.stringify(data.ITEMS))
+                }
+                if("NEWS" in data ){
+                    localStorage.setItem('news', JSON.stringify(data.NEWS))
+                }
+                if("CONFIG" in data ){
+                    localStorage.setItem('config', JSON.stringify(data.CONFIG))
+                }
 
-            location.reload()
+                if("ITEMS" in data || "NEWS" in data || "CONFIG" in data){
+                    location.reload()
+                }
+            } catch (error) {
+                console.warn(error)
+            }
         }
     }
 
