@@ -15,15 +15,17 @@ const ListItems = () => {
             <div className='item-container'>
                     <div>ICON</div>
                     <div>NAME</div>
-                    <div>%</div>
+                    <div>MIN</div>
+                    <div>MAX</div>
                     <div className='last-child'>$</div>
             </div>
             {
                 items.map(item => (
                     <div className='item-container' key={item.id}>
-                        <div>{item.ico.name}</div>
+                        <i className={`fa-${item.ico.name} fa-${item.ico.family} fa-${item.ico.style}`}/>
                         <div>{item.name}</div>
-                        <div>{item.alteration.toFixed(2)}%</div>
+                        <div>{item.range.min ? item.range.min : -100}</div>
+                        <div>{item.range.max ? item.range.max : 100}</div>
                         <div>{item.value.initial}</div>
                         <button type='button' onClick={()=> handleDelete(item.id)}>
                             X

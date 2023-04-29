@@ -1,0 +1,32 @@
+.prueba-container{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    gap: 1em;
+    padding: 1em;
+}
+
+.prueba-element{
+    background-color: red;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 2em;
+}
+
+.prueba-element:nth-of-type(2){
+    grid-row-start: 2;
+}
+.prueba-element:nth-of-type(3){
+    grid-row-start: 3;
+}
+.prueba-element:nth-of-type(4){
+    grid-row-start: 4;
+}
+.prueba-element:nth-of-type(5){
+    grid-row-start: 5;
+}

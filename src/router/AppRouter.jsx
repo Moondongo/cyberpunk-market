@@ -10,6 +10,7 @@ import ItemsScreen from '../components/items/ItemsScreen'
 import NewsScreen from '../components/news/NewsScreen'
 import ConfigScreen from '../components/config/ConfigScreen'
 
+
 const router = createHashRouter([
     {
         path: '/',
@@ -31,8 +32,7 @@ const router = createHashRouter([
                 path: '/config',
                 element: <ConfigScreen/>
             }
-        ],
-        errorElement: <h1>PAGINA DE E</h1>
+        ]
     }
 ])
 

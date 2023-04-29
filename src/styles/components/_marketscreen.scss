@@ -10,4 +10,17 @@
             grid-template-columns: 1fr;
         }
     }
+
+    & .item-container:nth-of-type(2){
+        grid-row-start: 2;
+    }
+    & .item-container:nth-of-type(3){
+        grid-row-start: 3;
+    }
+    & .item-container:nth-of-type(4){
+        grid-row-start: 4;
+    }
+    & .item-container:nth-of-type(5){
+        grid-row-start: 5;
+    }
 }
