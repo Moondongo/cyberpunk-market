@@ -60,4 +60,37 @@
             box-shadow: none;
         }
     }
+
+    & .load-container{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+
+        & .textarea{
+            border: 1px solid $low-color_900;
+            background-color: $bg-color_300;
+            padding: 1em;
+            margin-bottom: 2em;
+        }
+
+        & .button{
+            width: 150px;
+            font-size: 1em;
+            color: $low-color_300;
+            text-shadow: none;
+            border: 1px solid $low-color_600;
+            box-shadow: none;
+            margin-bottom: 8px;
+
+            transition: transform 0.1s linear;
+
+            & i{
+                color: $low-color_600;
+            }
+
+            &:active{
+                transform: scale(0.95);
+            }
+        }
+    }
 }
