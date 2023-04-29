@@ -66,6 +66,10 @@ const itemsSlice = createSlice({
                 if(item.id === action.payload){
                     return {
                         ...item,
+                        value: {
+                            ...item.value,
+                            current: null
+                        },
                         hide: true
                     }
                 }
