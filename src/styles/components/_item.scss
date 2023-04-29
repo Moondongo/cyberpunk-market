@@ -1,3 +1,55 @@
+.menu-item{
+    width: 480px;
+    height: 80px;
+    position: absolute;
+    background-color: #191a1ee2;
+    border: 2px solid $low-color_700;
+    z-index: 99;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: space-around;
+    padding: 1em;
+
+    & button{
+        width: 50px;
+        height: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: $secondary-color_900;
+        outline: none;
+        border: 1px solid $secondary-color_700;
+        color: $low-color_300;
+        text-shadow: $ui-glow-price;
+        font-weight: 500;
+        
+        & i {
+            color: $secondary-color_500;
+            font-size: 1.5em;
+        }
+    }
+
+    @media screen and (max-width: $smallscreen-layout) {
+        &{
+            width: 380px;
+            height: 70px;
+        }
+    }
+    @media screen and (max-width: $tablet-layout) {
+        &{
+            width: 450px;
+            height: 70px;
+        }
+    }
+    @media screen and (max-width: $mobile-layout) {
+        &{
+            width: 350px;
+            height: 60px;
+        }
+    }
+}
+
 .item-container{
     margin: 4px auto;
     display: flex;
@@ -37,6 +89,10 @@
     .item-container.low &{
         background-color: $low-color_600;
     }
+
+    .item-container.sticky &{
+        background-color: $secondary-color_300;
+    }
 }
 .item-outside{
     position: relative;
@@ -50,6 +106,9 @@
     }
     .item-container.low &{
         background-color: $low-color_600;
+    }
+    .item-container.sticky &{
+        background-color: $secondary-color_300;
     }
 }
 .item-inside{
@@ -68,6 +127,9 @@
     }
     .item-container.low &{
         background-color: $bg-color_300;
+    }
+    .item-container.sticky &{
+        background-color: $secondary-color_900;
     }
 }
 
@@ -89,6 +151,10 @@
     .item-container.low &{
         color: $low-color_700;
         background-color: $low-color_900; 
+    }
+    .item-container.sticky &{
+        color: $secondary-color_700;
+        background-color: $secondary-color_700;
     }
     & i{
         line-height: 40px;

@@ -47,7 +47,8 @@ const ItemsScreen = () => {
                 range: {
                     min: min ? Number(min): null,
                     max: max ? Number(max): null
-                }
+                },
+                sticky: false
             };
             dispatch(addItem(item))
             //reset()

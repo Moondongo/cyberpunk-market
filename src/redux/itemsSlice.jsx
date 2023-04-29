@@ -34,7 +34,8 @@ const itemsSlice = createSlice({
                     value: {
                         initial: item.value.initial,
                         current: oldValue + alteration
-                    }
+                    },
+                    hide: false
                 }
             })
             return [
@@ -43,9 +44,41 @@ const itemsSlice = createSlice({
         },
         deleteItem: (state, action) => {
             return state.filter(item => item.id !== action.payload)
+        },
+        stickyItem: (state, action) => {
+            const newState = state.map(item => {
+                if(item.id === action.payload){
+                    return {
+                        ...item,
+                        sticky: item.sticky ? !item.sticky : true
+                    }
+                }
+
+                return {...item}
+            })
+
+            return [
+                ...newState
+            ]
+        },
+        hideItem: (state, action) => {
+            const newState = state.map(item => {
+                if(item.id === action.payload){
+                    return {
+                        ...item,
+                        hide: true
+                    }
+                }
+
+                return {...item}
+            })
+
+            return [
+                ...newState
+            ]
         }
     }
 })
 
-export const { addItem, updateItems, deleteItem } = itemsSlice.actions;
+export const { addItem, updateItems, deleteItem, stickyItem, hideItem } = itemsSlice.actions;
 export default itemsSlice.reducer

@@ -2,7 +2,9 @@ import {createListenerMiddleware, isAnyOf} from '@reduxjs/toolkit'
 import {
     addItem, 
     updateItems, 
-    deleteItem 
+    deleteItem, 
+    stickyItem,
+    hideItem
 } from './itemsSlice'
 import { addNews, deleteNews } from './newsSlice';
 import { updateConfig } from './configSlice';
@@ -10,7 +12,7 @@ import { updateConfig } from './configSlice';
 export const listenerMiddleware = createListenerMiddleware();
 
 listenerMiddleware.startListening({
-    matcher: isAnyOf(addItem, updateItems, deleteItem, addNews, deleteNews, updateConfig),
+    matcher: isAnyOf(addItem, updateItems, deleteItem, stickyItem, hideItem, addNews, deleteNews, updateConfig),
     effect: (action, listenerApi) => {
         action.type.includes("ITEMS") &&
             localStorage.setItem('items', JSON.stringify(listenerApi.getState().ITEMS))
