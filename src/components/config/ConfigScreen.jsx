@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from '../../hooks/useForm';
 import { updateConfig } from '../../redux/configSlice';
 import useCopyToClipboard from '../../hooks/useCopyToClipboard';
+import MessagePopUp from '../ui/MessagePopUp';
 
 const ConfigScreen = () => {
     const state = useSelector(state => state)
@@ -12,7 +13,7 @@ const ConfigScreen = () => {
 
     const [value, copy] = useCopyToClipboard()
     const [cbCompatible, setCbCompatible] = useState(true)
-    const [cbValue, handleCBChange, resetCB] = useForm({
+    const [cbValue, handleCBChange] = useForm({
         content: ''
     })
 
@@ -21,7 +22,12 @@ const ConfigScreen = () => {
         minChange: config.minChange ? config.minChange : -100,
         maxChange: config.maxChange ? config.maxChange : 100
     })
-    const {duration , minChange, maxChange} = formValues;
+    const {duration} = formValues;
+
+    const [message, setMessage] = useState({
+        isMessage: false,
+        error: null
+    })
 
     useEffect(() => {
         if(!navigator?.clipboard){
@@ -35,9 +41,19 @@ const ConfigScreen = () => {
         dispatch(updateConfig({
             duration
         }))
+        setMessage({
+            isMessage: true,
+            error: null
+        })
+        setTimeout(() => {
+            setMessage({
+                isMessage: false,
+                error: null
+            })
+        }, 3000)
     }
 
-    const handleCopyToClipboard = () => {
+    const handleCopyToClipboard = (e) => {
         if(cbCompatible){
             copy(JSON.stringify(state))
         }else{
@@ -100,6 +116,9 @@ const ConfigScreen = () => {
 
     return (
         <>
+            {
+                message.isMessage && <MessagePopUp error={message.error}/>
+            }
             <form className='form-config' autoComplete="off" onSubmit={handleSubmit}>
                 <label>
                     MARKET DURATION (S)
@@ -112,7 +131,7 @@ const ConfigScreen = () => {
                         onChange={handleInputChange}
                     />
                 </label>
-                <button className='button'>
+                <button className='button' type='submit'>
                     SAVE
                 </button>
 
@@ -125,10 +144,10 @@ const ConfigScreen = () => {
                             onChange={handleCBChange}
                         ></textarea>
                     }
-                    <button className='button' onClick={handleCopyToClipboard}>
+                    <button className='button' type='button' onClick={handleCopyToClipboard}>
                     <i className="fa-sharp fa-solid fa-copy"/> COPY DATA
                     </button>
-                    <button className='button' onClick={handleReadingClipboard}>
+                    <button className='button' type='button' onClick={handleReadingClipboard}>
                     <i className="fa-sharp fa-solid fa-paste"/> PASTE DATA
                     </button>
                 </div>

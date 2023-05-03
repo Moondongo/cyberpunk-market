@@ -55,7 +55,7 @@
     display: flex;
     width: 480px;
     height: 80px;
-
+    //animation: stickyAnim 0.5s linear;
     
     @media screen and (max-width: $smallscreen-layout) {
         &{
@@ -74,6 +74,10 @@
             width: 350px;
             height: 60px;
         }
+    }
+
+    &.sticky{
+        animation: stickyAnim 0.2s ease-in-out;
     }
 }
 .item-edge{
