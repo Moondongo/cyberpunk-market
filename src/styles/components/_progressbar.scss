@@ -1,8 +1,29 @@
-.progress-bar_container{
-    height: 4px;
+.progress-container{
+    display: flex;
+    align-items: center;
     width: 50%;
     margin: 0 auto;
-    margin-bottom: 1em;
+
+
+    & button{
+        width: 30px;
+        height: 30px;
+        background-color: rgba(255, 0, 0, 0);
+        border: none;
+        font-size: 1.2em;
+
+        & i {
+            color: $low-color_600;
+
+        }
+    }
+}
+
+
+.progress-bar_container{
+    height: 4px;
+    width: 95%;
+    margin: 0 auto;
     background-color: $low-color_700;
 
     & .progress-bar_filler{
@@ -12,12 +33,11 @@
         border-radius: inherit;
         box-shadow: $ui-glow-text;
         text-align: right;
-        //transition: width 1s linear;
+        transition: width 1s linear;
     }
 
     &.pause .progress-bar_filler{
         color: $secondary-color_700;
         background-color: $secondary-color_500;
-        //transition: width 0.2s linear
     }
 }
