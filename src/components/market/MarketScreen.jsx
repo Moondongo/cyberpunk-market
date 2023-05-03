@@ -11,7 +11,7 @@ const MarketScreen = () => {
     const {duration} = useSelector(state => state.CONFIG)
     const [firstTenItems, setFirstTenItems] = useState([])
 
-    const [seconds, reset] = useTimer()
+    const [seconds, reset, pause, isPause] = useTimer()
     const [progress, setProgress] = useState(0)
 
     useEffect(()=>{
@@ -42,9 +42,13 @@ const MarketScreen = () => {
         )
     }, [items])
 
+    const handleClick = () => {
+        pause()
+    }
+
     return (
         <>
-        <ProgressBar progress={progress}/>
+        <ProgressBar progress={progress} isPause={isPause} handle={handleClick}/>
         <div className='items-container'>
             {
                 firstTenItems.map( item => <Item key={item.id} {...item}/>)

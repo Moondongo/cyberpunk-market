@@ -31,7 +31,7 @@ const NewsScreen = () => {
                     isMessage: false,
                     error: null
                 })
-            }, 3000)
+            }, 1000)
 
             return
         }
@@ -51,7 +51,7 @@ const NewsScreen = () => {
                 isMessage: false,
                 error: null
             })
-        }, 3000)
+        }, 1000)
     }
 
     return (

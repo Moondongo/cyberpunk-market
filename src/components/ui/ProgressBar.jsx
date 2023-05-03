@@ -1,8 +1,8 @@
 import React from 'react' 
 
-const ProgressBar = ({progress}) => {
+const ProgressBar = ({progress, isPause, handle}) => {
     return (
-        <div className='progress-bar_container'>
+        <div className={`progress-bar_container ${isPause && 'pause'}`} onClick={handle}>
             <div className='progress-bar_filler' style={{width: `${progress}%`}}>
             </div>
         </div>

@@ -12,6 +12,12 @@
         border-radius: inherit;
         box-shadow: $ui-glow-text;
         text-align: right;
-        transition: width 1s linear;
+        //transition: width 1s linear;
+    }
+
+    &.pause .progress-bar_filler{
+        color: $secondary-color_700;
+        background-color: $secondary-color_500;
+        //transition: width 0.2s linear
     }
 }

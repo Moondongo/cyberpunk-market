@@ -50,7 +50,7 @@ const ConfigScreen = () => {
                 isMessage: false,
                 error: null
             })
-        }, 3000)
+        }, 1000)
     }
 
     const handleCopyToClipboard = (e) => {

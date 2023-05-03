@@ -41,7 +41,7 @@ const ItemsScreen = () => {
                     isMessage: false,
                     error: null
                 })
-            }, 3000)
+            }, 1000)
             return
         }
         if(!hasName){
@@ -54,7 +54,7 @@ const ItemsScreen = () => {
                     isMessage: false,
                     error: null
                 })
-            }, 3000)
+            }, 1000)
             return
         }
         if(!hasValue){
@@ -67,7 +67,7 @@ const ItemsScreen = () => {
                     isMessage: false,
                     error: null
                 })
-            }, 3000)
+            }, 1000)
             return
         }
         if(!isRange){
@@ -80,7 +80,7 @@ const ItemsScreen = () => {
                     isMessage: false,
                     error: null
                 })
-            }, 3000)
+            }, 1000)
             return
         }
 
@@ -119,7 +119,7 @@ const ItemsScreen = () => {
                 isMessage: false,
                 error: null
             })
-        }, 3000)
+        }, 1000)
     }
 
     return (
