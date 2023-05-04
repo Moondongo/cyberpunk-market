@@ -9,7 +9,7 @@ const ProgressBar = ({progress, isPause, handle}) => {
             </div>
             <button onClick={handle}>
                 {
-                    isPause 
+                    !isPause 
                         ? <i className="fa-solid fa-pause"></i>
                         : <i className="fa-solid fa-play"></i>
                 }

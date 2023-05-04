@@ -108,7 +108,7 @@ const ItemsScreen = () => {
             sticky: false
         };
         dispatch(addItem(item))
-        reset()  
+        //reset()  
         
         setMessage({
             isMessage: true,
