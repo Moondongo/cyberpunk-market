@@ -1,6 +1,6 @@
 import React from 'react' 
 
-const MessagePopUp = ({error}) => {
+const MessagePopUp = ({error, msg}) => {
     return (
         <div className='msg-container'>
             <div className={`msg-content ${!error && 'check'}`}>
@@ -15,7 +15,9 @@ const MessagePopUp = ({error}) => {
                     {
                         error
                             ? error
-                            : 'el elemento se guardo con exito'
+                            : msg 
+                                ? msg
+                                : 'el elemento se guardo con exito'
                     }
                 </div>
                 <div className='msg-progressbar_container'>

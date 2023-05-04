@@ -4,7 +4,8 @@ import {
     updateItems, 
     deleteItem, 
     stickyItem,
-    hideItem
+    hideItem,
+    modifyItem
 } from './itemsSlice'
 import { addNews, deleteNews } from './newsSlice';
 import { updateConfig } from './configSlice';
@@ -12,7 +13,7 @@ import { updateConfig } from './configSlice';
 export const listenerMiddleware = createListenerMiddleware();
 
 listenerMiddleware.startListening({
-    matcher: isAnyOf(addItem, updateItems, deleteItem, stickyItem, hideItem, addNews, deleteNews, updateConfig),
+    matcher: isAnyOf(addItem, updateItems, deleteItem, modifyItem, stickyItem, hideItem, addNews, deleteNews, updateConfig),
     effect: (action, listenerApi) => {
         action.type.includes("ITEMS") &&
             localStorage.setItem('items', JSON.stringify(listenerApi.getState().ITEMS))

@@ -26,7 +26,8 @@ const ConfigScreen = () => {
 
     const [message, setMessage] = useState({
         isMessage: false,
-        error: null
+        error: null,
+        msg: null
     })
 
     useEffect(() => {
@@ -43,12 +44,14 @@ const ConfigScreen = () => {
         }))
         setMessage({
             isMessage: true,
-            error: null
+            error: null,
+            msg: null
         })
         setTimeout(() => {
             setMessage({
                 isMessage: false,
-                error: null
+                error: null,
+                msg: null
             })
         }, 1000)
     }
@@ -64,6 +67,18 @@ const ConfigScreen = () => {
                 }
             })
         }
+        setMessage({
+            isMessage: true,
+            error: null,
+            msg: "DATOS COPIADOS"
+        })
+        setTimeout(() => {
+            setMessage({
+                isMessage: false,
+                error: null,
+                msg: null
+            })
+        }, 1000)
     }
 
     const handleReadingClipboard = () => {
@@ -87,9 +102,22 @@ const ConfigScreen = () => {
                         location.reload()
                     }
                 })
-                .catch( e => console.log)
+                .catch( e => {
+                    setMessage({
+                        isMessage: true,
+                        error: 'Invalid Data',
+                        msg: null
+                    })
+                    setTimeout(() => {
+                        setMessage({
+                            isMessage: false,
+                            error: null,
+                            msg: null
+                        })
+                    }, 1000)
+                })
             } catch (error) {
-                console.warn(error)
+                return console.warn(error)
             }
         }else{
             try {
@@ -109,7 +137,7 @@ const ConfigScreen = () => {
                     location.reload()
                 }
             } catch (error) {
-                console.warn(error)
+                return console.warn(error)
             }
         }
     }
@@ -117,7 +145,7 @@ const ConfigScreen = () => {
     return (
         <>
             {
-                message.isMessage && <MessagePopUp error={message.error}/>
+                message.isMessage && <MessagePopUp error={message.error} msg={message.msg}/>
             }
             <form className='form-config' autoComplete="off" onSubmit={handleSubmit}>
                 <label>

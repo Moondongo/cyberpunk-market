@@ -45,6 +45,9 @@ const itemsSlice = createSlice({
         deleteItem: (state, action) => {
             return state.filter(item => item.id !== action.payload)
         },
+        modifyItem: (state, action) => {
+            return state.map(item => item.id === action.payload.id ? action.payload : item)
+        },
         stickyItem: (state, action) => {
             const newState = state.map(item => {
                 if(item.id === action.payload){
@@ -84,5 +87,5 @@ const itemsSlice = createSlice({
     }
 })
 
-export const { addItem, updateItems, deleteItem, stickyItem, hideItem } = itemsSlice.actions;
+export const { addItem, updateItems, deleteItem, modifyItem, stickyItem, hideItem } = itemsSlice.actions;
 export default itemsSlice.reducer
