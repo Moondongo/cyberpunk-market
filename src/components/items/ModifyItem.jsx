@@ -19,7 +19,6 @@ const ModifyItem = ({item, handleCancel}) => {
         const hasName = name.length > 0
         const hasValue = value.length > 0 && !isNaN(value) && Number(value) > 0
         const isRange = min.length===0 && max.length===0 || !isNaN(min) && !isNaN(max) && Number(min) < Number(max)
-        console.log(value)
         if(!hasName || !hasValue || !isRange){
             return
         }
