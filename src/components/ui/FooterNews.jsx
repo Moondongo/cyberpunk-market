@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState, useCallback} from 'react'
 import { useSelector } from 'react-redux'
+import Marquee from 'react-fast-marquee'
 
 // const list = [
 //     "important annoucement!",
@@ -61,13 +62,18 @@ export const FooterNews = () => {
                     [...Array(18*2)].map((e, i) => <div key={i}>BREAKING NEWS</div>)
                 }                
             </div>
-            <div className='footer-content' >
+            {/* <div className='footer-content' >
                 <div className='inner' ref={handleRefUpdate} onAnimationEnd={handleAnimationEnd}>
                     {
                         news?.map((e) => <div key={e.id} className='content'>{e.news}</div>)
                     }
                 </div>
-            </div>
+            </div> */}
+            <Marquee autoFill>
+                {
+                    news?.map((e) => <div key={e.id} className='content'>{e.news}</div>)
+                }
+            </Marquee>
         </div>
     )
 }

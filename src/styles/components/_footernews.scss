@@ -72,9 +72,10 @@
         }        
     }
     & .inner.moving{
+        white-space: nowrap;
         animation-name: content-scroll;
     }
-
+    
 }
 @keyframes content-scroll {
     0%{
@@ -83,5 +84,15 @@
     100% {
         transform: translateX(var(--animationDistance));
     }
+}
+
+.content{
+    text-transform: uppercase;
+    color: whitesmoke;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 2em;
+    padding-right: 2em;
+    text-transform: uppercase;
 }
 
