@@ -8,12 +8,11 @@
     & .news-container{
         display: grid;
         width: 100%;
-        height: 25px;
+        
         grid-template-columns: 0.90fr 0.10fr;
         justify-content: space-between;
         text-align: center;
         margin: 4px 0;
-
         & div{
             border: 1px solid $low-color_900;
             background-color: $bg-color_300;
